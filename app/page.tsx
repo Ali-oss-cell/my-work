@@ -305,8 +305,8 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
                           >
-                            Passionate about creating beautiful, functional digital experiences. 
-                            I combine clean code with stunning design to build websites that stand out.
+                            Technical lead and backend architect with expertise in Django, Go, and AI/ML. 
+                            I design scalable systems, build ML-backed APIs, and lead teams to deliver production-ready solutions.
                           </motion.p>
 
                           {/* Stats */}
@@ -319,7 +319,7 @@ export default function Home() {
                             {[
                               { label: 'Years Exp', value: '5+' },
                               { label: 'Projects', value: '50+' },
-                              { label: 'Clients', value: '30+' },
+                              { label: 'Teams Led', value: '3+' },
                             ].map((stat, i) => (
                               <div 
                                 key={i}
@@ -343,7 +343,7 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
                           >
-                            {['React', 'Next.js', 'TypeScript', 'Tailwind', 'Node.js'].map((skill, i) => (
+                            {['Django', 'Go', 'Python', 'AI/ML', 'APIs'].map((skill, i) => (
                               <span 
                                 key={i}
                                 className="px-3 py-1 text-xs rounded-full font-medium"
@@ -367,9 +367,54 @@ export default function Home() {
 
             {/* Content */}
             <div className="space-y-6">
-              <p className="text-lg text-foreground/90" style={{ color: '#171717' }}>
-                About section coming soon...
-              </p>
+              <div className="space-y-4">
+                <p className="text-lg leading-relaxed" style={{ color: '#171717' }}>
+                  I'm a <strong style={{ color: '#2F52E0' }}>backend engineer</strong> and <strong style={{ color: '#FF715B' }}>technical lead</strong> with a passion for building robust, scalable systems. 
+                  Currently transitioning toward an <strong style={{ color: '#BCED09' }}>AI-focused engineering path</strong>, I combine solid backend fundamentals with emerging ML technologies.
+                </p>
+                
+                <p className="text-lg leading-relaxed" style={{ color: '#171717' }}>
+                  As a <strong>backend owner</strong> for multi-module systems like Warehouse Management Systems, I've designed and implemented 
+                  production-oriented services that handle real-world complexity. My experience spans from API design and database architecture 
+                  to team leadership and mentoring developers.
+                </p>
+
+                <p className="text-lg leading-relaxed" style={{ color: '#171717' }}>
+                  I'm particularly interested in <strong style={{ color: '#2F52E0' }}>ML-backed APIs</strong>, local LLMs (Ollama, DeepSeek Coder), 
+                  and exploring how AI can enhance backend systems. My approach is practical and project-driven—I build to learn.
+                </p>
+              </div>
+
+              {/* Experience Highlights */}
+              <div className="mt-8 space-y-4">
+                <h3 className="text-xl font-bold" style={{ color: '#2F52E0' }}>Key Experience</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(47, 82, 224, 0.05)' }}>
+                    <h4 className="font-semibold mb-2" style={{ color: '#2F52E0' }}>🏗️ Backend Architecture</h4>
+                    <p className="text-sm" style={{ color: '#4C5B5C' }}>
+                      Designing and implementing scalable backend services with Django and Go
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255, 113, 91, 0.05)' }}>
+                    <h4 className="font-semibold mb-2" style={{ color: '#FF715B' }}>🤖 AI/ML Integration</h4>
+                    <p className="text-sm" style={{ color: '#4C5B5C' }}>
+                      Building ML-backed APIs and experimenting with local LLMs for development workflows
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(188, 237, 9, 0.05)' }}>
+                    <h4 className="font-semibold mb-2" style={{ color: '#BCED09' }}>👥 Team Leadership</h4>
+                    <p className="text-sm" style={{ color: '#4C5B5C' }}>
+                      Leading development teams, mentoring developers, and translating requirements into architecture
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(249, 203, 64, 0.05)' }}>
+                    <h4 className="font-semibold mb-2" style={{ color: '#F9CB40' }}>🚀 Full-Stack Thinking</h4>
+                    <p className="text-sm" style={{ color: '#4C5B5C' }}>
+                      Bridging technical work with business needs and marketing strategies
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -678,17 +723,229 @@ export default function Home() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <h2 
-            className="text-3xl font-bold mb-8"
-            style={{ color: '#FFFFFF' }} // White text for contrast
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            Skills
-          </h2>
-          <div 
-            className="h-1 w-20 mb-6"
-            style={{ backgroundColor: '#BCED09' }} // Lime Punch accent
-          />
-          <p style={{ color: '#FFFFFF' }}>Skills section coming soon...</p>
+            <h2 
+              className="text-4xl md:text-5xl font-bold mb-4"
+              style={{ color: '#FFFFFF' }}
+            >
+              Skills & Technologies
+            </h2>
+            <div 
+              className="h-1 w-20 mx-auto mb-6"
+              style={{ backgroundColor: '#BCED09' }}
+            />
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+              Technologies and tools I work with to build robust backend systems and AI-powered solutions
+            </p>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Backend Development */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>⚙️</span> Backend Development
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Django', 'Go', 'Python', 'REST APIs', 'GraphQL', 'PostgreSQL', 'MySQL', 'Redis'].map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-sm rounded-full text-sm font-medium rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(188, 237, 9, 0.2)',
+                      color: '#BCED09',
+                      border: '1px solid rgba(188, 237, 9, 0.3)',
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* AI & Machine Learning */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>🤖</span> AI & Machine Learning
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Ollama', 'DeepSeek Coder', 'ML APIs', 'Model Fine-tuning', 'Prompt Engineering', 'Local LLMs'].map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-sm font-medium rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(47, 82, 224, 0.3)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(47, 82, 224, 0.5)',
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* System & DevOps */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>🖥️</span> System & DevOps
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Linux', 'Docker', 'Git', 'CI/CD', 'System Architecture', 'Database Design'].map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-sm font-medium rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(249, 203, 64, 0.3)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(249, 203, 64, 0.5)',
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Leadership & Collaboration */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>👥</span> Leadership & Collaboration
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Technical Leadership', 'Team Management', 'Mentoring', 'Project Planning', 'Code Reviews', 'Agile'].map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-sm font-medium rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(76, 91, 92, 0.3)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(76, 91, 92, 0.5)',
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Additional Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>🎯</span> Additional Skills
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['Social Media Marketing', 'Content Strategy', 'Product Requirements', 'Business Analysis'].map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    className="px-3 py-1.5 text-sm font-medium rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(255, 113, 91, 0.3)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(255, 113, 91, 0.5)',
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Work Style */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="p-6 rounded-2xl"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                <span>💡</span> Approach
+              </h3>
+              <div className="space-y-2">
+                <p className="text-sm text-white/90">
+                  <strong>Build to Learn:</strong> Practical, project-driven learning style
+                </p>
+                <p className="text-sm text-white/90">
+                  <strong>Production-Focused:</strong> Designing systems for real-world scale
+                </p>
+                <p className="text-sm text-white/90">
+                  <strong>Full-Stack Thinking:</strong> Bridging tech, business, and user needs
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

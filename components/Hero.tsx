@@ -276,7 +276,7 @@ export default function Hero() {
               backgroundClip: 'text',
             }}
           >
-            Creative Developer
+            Backend Engineer & AI Enthusiast
           </motion.h2>
 
           {/* Description with Modern Typography */}
@@ -285,9 +285,9 @@ export default function Hero() {
             className="text-lg md:text-xl mb-8 max-w-xl leading-relaxed"
             style={{ color: '#4C5B5C' }}
           >
-            Crafting <span style={{ color: '#2F52E0', fontWeight: 600 }}>beautiful</span> and{' '}
-            <span style={{ color: '#FF715B', fontWeight: 600 }}>interactive</span> digital experiences
-            that bring ideas to life.
+            Building <span style={{ color: '#2F52E0', fontWeight: 600 }}>scalable</span> backend systems with{' '}
+            <span style={{ color: '#FF715B', fontWeight: 600 }}>Django</span> and <span style={{ color: '#BCED09', fontWeight: 600 }}>Go</span>,
+            exploring AI/ML to solve real-world problems.
           </motion.p>
 
           {/* Modern CTA Buttons */}
@@ -342,7 +342,7 @@ export default function Hero() {
             className="mt-12 flex flex-wrap gap-8 justify-center md:justify-start"
           >
             {[
-              { number: '3+', label: 'Years Experience' },
+              { number: '5+', label: 'Years Experience' },
               { number: '50+', label: 'Projects Done' },
               { number: '100%', label: 'Client Satisfaction' },
             ].map((stat, i) => (
