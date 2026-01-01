@@ -1,14 +1,15 @@
 /**
- * Portfolio Color Palette
- * Use these colors throughout the project for consistency
+ * Portfolio Color Palette - Clean Dev + Product (Minimal)
+ * Clear, readable, product-focused, recruiter-friendly
  */
 
 export const colors = {
-  electricBlue: '#2F52E0',    // Primary buttons, links, highlights
-  limePunch: '#BCED09',        // Accents, hover states, badges
-  goldenHour: '#F9CB40',       // Secondary accents, icons
-  coralBurst: '#FF715B',       // CTAs, important elements
-  slate: '#4C5B5C',            // Text, borders, subtle elements
+  primary: '#FFFFFF',          // Primary background (White)
+  secondary: '#F1F5F9',        // Secondary background (Light Slate)
+  accent: '#2563EB',           // Accent, CTAs, links (Blue)
+  highlight: '#F59E0B',        // Warning, highlights (Amber)
+  text: '#0F172A',             // Primary text (Dark Navy)
+  mutedText: '#475569',        // Muted text, secondary (Slate Grey)
 } as const;
 
 // Tailwind class names (for reference)

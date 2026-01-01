@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useSpring, AnimatePresence } from 'framer-motion';
-import { ArrowDownIcon } from '@heroicons/react/24/outline';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowDownIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
 
@@ -11,16 +11,7 @@ const heroImages = [
 ];
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isInHero, setIsInHero] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
-  const badgeOriginalPos = useRef({ x: 0, y: 0 });
-
-  // Spring config for smooth following
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
-  const badgeX = useSpring(0, springConfig);
-  const badgeY = useSpring(0, springConfig);
 
   // Auto-switch images every 4 seconds
   useEffect(() => {
@@ -30,35 +21,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      
-      // Check if cursor is in hero section
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const inHero = 
-          e.clientX >= rect.left && 
-          e.clientX <= rect.right && 
-          e.clientY >= rect.top && 
-          e.clientY <= rect.bottom;
-        
-        setIsInHero(inHero);
-        
-        if (inHero) {
-          // Move badge toward cursor (offset so it doesn't cover cursor)
-          badgeX.set(e.clientX - rect.left - 100);
-          badgeY.set(e.clientY - rect.top - 50);
-        } else {
-          // Return to original position
-          badgeX.set(0);
-          badgeY.set(0);
-        }
-      }
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [badgeX, badgeY]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -100,17 +62,16 @@ export default function Hero() {
 
   return (
     <section 
-      ref={heroRef}
       id="home" 
       className="min-h-screen flex items-center justify-center w-full relative overflow-hidden"
-      style={{ backgroundColor: '#f5f5f5' }}
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute w-[600px] h-[600px] rounded-full opacity-30"
           style={{
-            background: 'radial-gradient(circle, #2F52E0 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)',
             top: '-20%',
             right: '-10%',
             filter: 'blur(80px)',
@@ -129,7 +90,7 @@ export default function Hero() {
         <motion.div
           className="absolute w-[500px] h-[500px] rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, #BCED09 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #F1F5F9 0%, transparent 70%)',
             bottom: '-10%',
             left: '-5%',
             filter: 'blur(60px)',
@@ -148,7 +109,7 @@ export default function Hero() {
         <motion.div
           className="absolute w-[400px] h-[400px] rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, #FF715B 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #F59E0B 0%, transparent 70%)',
             top: '40%',
             left: '30%',
             filter: 'blur(70px)',
@@ -171,8 +132,8 @@ export default function Hero() {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(#2F52E0 1px, transparent 1px),
-            linear-gradient(90deg, #2F52E0 1px, transparent 1px)
+            linear-gradient(#2563EB 1px, transparent 1px),
+            linear-gradient(90deg, #2563EB 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}
@@ -187,58 +148,36 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Animated Badge - Follows Cursor in Hero */}
+          {/* Available for work Badge */}
           <motion.div
-            className={`inline-flex items-center gap-2 mb-6 px-5 py-2.5 rounded-full backdrop-blur-md z-50 ${
-              isInHero ? 'fixed pointer-events-none' : ''
-            }`}
+            className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 rounded-full backdrop-blur-md"
             style={{ 
-              border: '1px solid rgba(47, 82, 224, 0.3)',
-              background: isInHero 
-                ? 'linear-gradient(135deg, rgba(47, 82, 224, 0.9) 0%, rgba(76, 91, 92, 0.9) 100%)'
-                : 'rgba(255, 255, 255, 0.5)',
-              boxShadow: isInHero 
-                ? '0 10px 40px rgba(47, 82, 224, 0.4), 0 0 20px rgba(188, 237, 9, 0.3)'
-                : 'none',
-              x: isInHero ? badgeX : 0,
-              y: isInHero ? badgeY : 0,
+              border: '1px solid rgba(37, 99, 235, 0.3)',
+              background: 'rgba(255, 255, 255, 0.5)',
             }}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ 
-              opacity: 1, 
-              y: 0,
-              scale: isInHero ? 1.1 : 1,
-            }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.span
               className="w-2.5 h-2.5 rounded-full"
-              style={{ backgroundColor: '#BCED09' }}
+              style={{ backgroundColor: '#22c55e' }}
               animate={{ 
                 scale: [1, 1.4, 1],
                 boxShadow: [
-                  '0 0 0px rgba(188, 237, 9, 0)',
-                  '0 0 15px rgba(188, 237, 9, 0.8)',
-                  '0 0 0px rgba(188, 237, 9, 0)',
+                  '0 0 0px rgba(34, 197, 94, 0)',
+                  '0 0 15px rgba(34, 197, 94, 0.8)',
+                  '0 0 0px rgba(34, 197, 94, 0)',
                 ]
               }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
             <span 
               className="text-sm font-semibold"
-              style={{ color: isInHero ? '#ffffff' : '#2F52E0' }}
+              style={{ color: '#2563EB' }}
             >
               Available for work
             </span>
-            {isInHero && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-sm"
-              >
-                ✨
-              </motion.span>
-            )}
           </motion.div>
 
           {/* Animated Name with Letter Animation */}
@@ -253,7 +192,7 @@ export default function Hero() {
                   animate="visible"
                   className="inline-block"
                   style={{
-                    background: 'linear-gradient(135deg, #2F52E0 0%, #4C5B5C 100%)',
+                    background: 'linear-gradient(135deg, #2563EB 0%, #475569 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -270,7 +209,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6"
             style={{
-              background: 'linear-gradient(135deg, #F9CB40 0%, #FF715B 100%)',
+              background: 'linear-gradient(135deg, #2563EB 0%, #F59E0B 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -283,10 +222,10 @@ export default function Hero() {
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl mb-8 max-w-xl leading-relaxed"
-            style={{ color: '#4C5B5C' }}
+            style={{ color: '#475569' }}
           >
-            Building <span style={{ color: '#2F52E0', fontWeight: 600 }}>scalable</span> backend systems with{' '}
-            <span style={{ color: '#FF715B', fontWeight: 600 }}>Django</span> and <span style={{ color: '#BCED09', fontWeight: 600 }}>Go</span>,
+            Building <span style={{ color: '#2563EB', fontWeight: 600 }}>scalable</span> backend systems with{' '}
+            <span style={{ color: '#F59E0B', fontWeight: 600 }}>Django</span> and <span style={{ color: '#0F172A', fontWeight: 600 }}>Go</span>,
             exploring AI/ML to solve real-world problems.
           </motion.p>
 
@@ -298,7 +237,7 @@ export default function Hero() {
             <motion.a
               href="#projects"
               className="group relative px-8 py-4 rounded-2xl font-semibold text-white overflow-hidden"
-              style={{ backgroundColor: '#2F52E0' }}
+              style={{ backgroundColor: '#2563EB' }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -314,7 +253,7 @@ export default function Hero() {
               <motion.div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
                 style={{
-                  background: 'linear-gradient(135deg, #2F52E0 0%, #4C5B5C 100%)',
+                  background: 'linear-gradient(135deg, #2563EB 0%, #475569 100%)',
                 }}
               />
             </motion.a>
@@ -322,13 +261,13 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-4 rounded-2xl font-semibold bg-white/50 backdrop-blur-sm"
               style={{ 
-                border: '2px solid rgba(47, 82, 224, 0.3)',
-                color: '#2F52E0'
+                border: '2px solid rgba(37, 99, 235, 0.3)',
+                color: '#2563EB'
               }}
               whileHover={{ 
                 scale: 1.02, 
-                backgroundColor: 'rgba(47, 82, 224, 0.1)',
-                borderColor: '#2F52E0'
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                borderColor: '#2563EB'
               }}
               whileTap={{ scale: 0.98 }}
             >
@@ -349,14 +288,14 @@ export default function Hero() {
               <div key={i} className="text-center md:text-left">
                 <motion.span 
                   className="block text-2xl md:text-3xl font-bold"
-                  style={{ color: '#2F52E0' }}
+                  style={{ color: '#2563EB' }}
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + i * 0.1 }}
                 >
                   {stat.number}
                 </motion.span>
-                <span className="text-sm" style={{ color: '#4C5B5C' }}>{stat.label}</span>
+                <span className="text-sm" style={{ color: '#475569' }}>{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -378,7 +317,7 @@ export default function Hero() {
             <div 
               className="w-[90%] h-[90%] rounded-full"
               style={{
-                border: '2px dashed rgba(47, 82, 224, 0.2)',
+                border: '2px dashed rgba(37, 99, 235, 0.2)',
               }}
             />
           </motion.div>
@@ -392,7 +331,7 @@ export default function Hero() {
             <div 
               className="absolute -inset-4 rounded-3xl -z-10"
               style={{
-                background: 'linear-gradient(135deg, rgba(47, 82, 224, 0.1) 0%, rgba(188, 237, 9, 0.1) 100%)',
+                background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(241, 245, 249, 0.1) 100%)',
                 backdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
               }}
@@ -440,9 +379,9 @@ export default function Hero() {
             <motion.div
               className="absolute -bottom-6 -right-6 px-6 py-3 rounded-2xl shadow-2xl z-30"
               style={{ 
-                background: 'linear-gradient(135deg, #2F52E0 0%, #4C5B5C 100%)',
+                background: 'linear-gradient(135deg, #2563EB 0%, #475569 100%)',
                 border: '2px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 20px 40px rgba(47, 82, 224, 0.3)',
+                boxShadow: '0 20px 40px rgba(37, 99, 235, 0.3)',
               }}
               animate={{ 
                 y: [0, -8, 0],
@@ -456,7 +395,7 @@ export default function Hero() {
                   animate={{ rotate: [0, 15, -15, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                  ✨
+                  <SparklesIcon className="w-5 h-5" />
                 </motion.span>
                 Open to Collaborate
               </span>
@@ -466,7 +405,7 @@ export default function Hero() {
             <motion.div
               className="absolute -top-4 -left-4 px-4 py-2 rounded-xl shadow-xl z-30"
               style={{ 
-                background: 'linear-gradient(135deg, #BCED09 0%, #F9CB40 100%)',
+                background: 'linear-gradient(135deg, #F1F5F9 0%, #2563EB 100%)',
                 border: '2px solid rgba(255, 255, 255, 0.5)',
               }}
               animate={{ 
@@ -476,41 +415,14 @@ export default function Hero() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-sm font-bold" style={{ color: '#171717' }}>
-                🚀 Let's Build
+              <span className="text-sm font-bold flex items-center gap-1" style={{ color: '#475569' }}>
+                <RocketLaunchIcon className="w-4 h-4" />
+                Let's Build
               </span>
             </motion.div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <motion.a
-          href="#about"
-          className="flex flex-col items-center gap-2 group"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <span className="text-xs font-medium" style={{ color: '#4C5B5C' }}>Scroll Down</span>
-          <div 
-            className="w-6 h-10 rounded-full flex items-start justify-center p-2"
-            style={{ border: '2px solid #4C5B5C' }}
-          >
-            <motion.div
-              className="w-1.5 h-3 rounded-full"
-              style={{ backgroundColor: '#2F52E0' }}
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            />
-          </div>
-        </motion.a>
-      </motion.div>
     </section>
   );
 }

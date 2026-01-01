@@ -60,11 +60,11 @@ export default function Navigation() {
                   href={item.href}
                   className="p-2 text-foreground/80 transition-colors relative group rounded-lg"
                   style={{ 
-                    '--hover-color': '#2F52E0'
+                    '--hover-color': '#2563EB'
                   } as React.CSSProperties}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = '#2F52E0';
-                    e.currentTarget.style.backgroundColor = 'rgba(47, 82, 224, 0.1)';
+                    e.currentTarget.style.color = '#2563EB';
+                    e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = '';
@@ -88,10 +88,10 @@ export default function Navigation() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground transition-colors"
             style={{ 
-              '--hover-color': '#2F52E0'
+              '--hover-color': '#2563EB'
             } as React.CSSProperties}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#2F52E0';
+              e.currentTarget.style.color = '#2563EB';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.color = '';
@@ -129,11 +129,11 @@ export default function Navigation() {
                       href={item.href}
                       className="flex items-center gap-3 text-foreground/80 transition-colors py-3 px-3 rounded-lg"
                       style={{ 
-                        '--hover-color': '#2F52E0'
+                        '--hover-color': '#2563EB'
                       } as React.CSSProperties}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = '#2F52E0';
-                        e.currentTarget.style.backgroundColor = 'rgba(47, 82, 224, 0.1)';
+                        e.currentTarget.style.color = '#2563EB';
+                        e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.color = '';

@@ -68,7 +68,7 @@ export default function CustomCursor() {
       >
         <div
           className="w-3 h-3 rounded-full"
-          style={{ backgroundColor: '#BCED09' }}
+          style={{ backgroundColor: '#2563EB' }}
         />
       </motion.div>
 
@@ -89,7 +89,7 @@ export default function CustomCursor() {
         <div
           className="w-10 h-10 rounded-full"
           style={{
-            border: '2px solid #2F52E0',
+            border: '2px solid #F59E0B',
             backgroundColor: 'transparent',
           }}
         />
